@@ -20,7 +20,7 @@ public class Scrapper {
     ExecutorService executorService = Executors.newFixedThreadPool(30);
 
     long start = 2997619;
-    start-=145000;
+    start-=165000;
     int times = 1000000;
     for (int i = 0; i < times; i++) {
       long id = start - i;
