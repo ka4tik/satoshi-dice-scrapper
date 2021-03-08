@@ -20,11 +20,11 @@ public class Scrapper {
     ExecutorService executorService = Executors.newFixedThreadPool(10);
 
     long start = 2997619;
-    int times = 10000;
+    int times = 100000;
     for (int i = 0; i < times; i++) {
       long id = start - i;
-      if (diceResultRepository.findById(id).isEmpty()) {
-        executorService.submit(() -> {
+      executorService.submit(() -> {
+        if (diceResultRepository.findById(id).isEmpty()) {
           Result betDetails = diceClient.getBetDetails(id);
           if (betDetails.status == 200) {
             diceResultRepository.save(betDetails.payload);
@@ -32,8 +32,8 @@ public class Scrapper {
             betDetails.payload = Payload.builder().id(id).build();
             diceResultRepository.save(betDetails.payload);
           }
-        });
-      }
+        }
+      });
     }
     System.out.println("done");
 
