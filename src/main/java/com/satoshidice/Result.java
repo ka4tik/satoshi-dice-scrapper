@@ -21,32 +21,32 @@ import org.hibernate.envers.Audited;
  class Payload{
 
  @Id
-  public long id;
+  public Long id;
   public String depositTxHash;
-  public int vout;
+  public Integer vout;
   public String payoutTxHash;
   public String serverSeedHash;
   public String randomSeed;
   public String serverSeedTx;
-  public int bet;
-  public int roll;
-  public boolean win;
-  public double betAmount;
-  public double refunded;
-  public boolean overmax;
-  public double payout;
+  public Integer bet;
+  public Integer roll;
+  public Boolean win;
+  public Double betAmount;
+  public Double refunded;
+  public Boolean overmax;
+  public Double payout;
   public String timestamp;
-  public long timestampUnix;
+  public Long timestampUnix;
   public String seedPublishTimestamp;
-  public long seedPublishTimestampUnix;
-  public int logVersion;
-  public boolean broadcasted;
-  public int status;
+  public Long seedPublishTimestampUnix;
+  public Integer logVersion;
+  public Boolean broadcasted;
+  public Integer status;
 }
 
 @Data
 public class Result{
-  public int status;
+  public Integer status;
   public String message;
   public Payload payload;
 }
