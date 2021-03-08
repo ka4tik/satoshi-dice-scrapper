@@ -21,11 +21,11 @@ public class Scrapper {
 
     long start = 2997619;
     start-=25000;
-    int times = 100000;
+    int times = 47000;
     for (int i = 0; i < times; i++) {
       long id = start - i;
       executorService.submit(() -> {
-        if (diceResultRepository.findById(id).isEmpty()) {
+        if (!diceResultRepository.existsById(id)) {
           Result betDetails = diceClient.getBetDetails(id);
           if (betDetails.status == 200) {
             diceResultRepository.save(betDetails.payload);
