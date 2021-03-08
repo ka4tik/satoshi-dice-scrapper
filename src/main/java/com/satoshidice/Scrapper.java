@@ -17,10 +17,10 @@ public class Scrapper {
 
   @PostConstruct
   public void run() {
-    ExecutorService executorService = Executors.newFixedThreadPool(30);
+    ExecutorService executorService = Executors.newFixedThreadPool(50);
 
     long start = 2997619;
-    start-=165000;
+    start-=180000;
     int times = 1000000;
     for (int i = 0; i < times; i++) {
       long id = start - i;
